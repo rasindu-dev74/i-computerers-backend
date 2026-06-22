@@ -5,8 +5,10 @@ import userRouter from "./routes/userRouter.js"
 import jwt from "jsonwebtoken";
 import authenticateuser from "./middlewares/aurthanticate.js"
 import productRouter from "./routes/productRouter.js"
+import dotenv from "dotenv"
+dotenv.config()
 
-const mongouri="mongodb://admin:1234@ac-rlejqje-shard-00-00.thgeeik.mongodb.net:27017,ac-rlejqje-shard-00-01.thgeeik.mongodb.net:27017,ac-rlejqje-shard-00-02.thgeeik.mongodb.net:27017/?ssl=true&replicaSet=atlas-xltpzj-shard-0&authSource=admin&appName=Cluster0"
+const mongouri=process.env.MONGO_URI
 
 mongoose.connect(mongouri).then(
     ()=>{

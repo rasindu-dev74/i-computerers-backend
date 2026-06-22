@@ -2,6 +2,8 @@
 import User from "../models/user.js";
 import bcrypt from "bcrypt";
 import Jwt from "jsonwebtoken";
+import dotenv from "dotenv"
+dotenv.config()
 
 export async function createUser(req,res){
     try{
@@ -61,7 +63,7 @@ export async function loginUser(req,res){
                 isBlocked:user.isBlocked,
             }
 
-            const token= Jwt.sign(userinfo,"secret")
+            const token= Jwt.sign(userinfo,process.env.jwt_secret)
             res.json({token:token})
 
         }
