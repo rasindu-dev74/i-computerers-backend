@@ -14,6 +14,10 @@ mongoose.connect(mongouri).then(
     ()=>{
         console.log("connected to mongodb")
     }
+).catch(
+    ()=>{
+        console.log("error conect to mongodb")
+    }
 )
 
 let app=express()
